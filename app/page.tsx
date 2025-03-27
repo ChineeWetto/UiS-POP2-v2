@@ -1,26 +1,5 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import {
-  ChevronRight,
-  Menu,
-  X,
-  ArrowRight,
-  Microscope,
-  FlaskRoundIcon as Flask,
-  Dna,
-  Users,
-  GraduationCap,
-  BarChart,
-  Download,
-  FileText,
-  BookOpen,
-} from "lucide-react"
-import DataHighlights from "@/components/features/home/data-highlights"
-import ResearchSummary from "@/components/features/home/research-summary"
 import { Button } from "@/components/ui/button"
 
 export default function Home() {
