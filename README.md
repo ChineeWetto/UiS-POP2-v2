@@ -1,20 +1,14 @@
 # UiS-POP2-v2
 
-A Next.js 14 application with AI integration capabilities, featuring OpenAI, Anthropic, and Google AI services.
+## Development Setup
 
-## Features
+### Prerequisites
 
-- Next.js 14 App Router
-- TypeScript
-- Tailwind CSS
-- Shadcn UI
-- AI Integration (OpenAI, Anthropic, Google AI)
-- Real-time data visualization
-- Interactive data analysis
-- Responsive design
-- Dark mode support
+- Node.js version 18.17.0 or higher
+- pnpm version 10.x
+- Git
 
-## Getting Started
+### Environment Setup
 
 1. Clone the repository:
 ```bash
@@ -27,9 +21,9 @@ cd UiS-POP2-v2
 pnpm install
 ```
 
-3. Set up environment variables:
+3. Create a `.env` file based on `.env.example`:
 ```bash
-cp .env.example .env.local
+cp .env.example .env
 ```
 
 4. Start the development server:
@@ -37,66 +31,44 @@ cp .env.example .env.local
 pnpm dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+### Build
 
-## Environment Variables
-
-Create a `.env.local` file in the root directory and add the following variables:
-
-```env
-# OpenAI
-OPENAI_API_KEY=your_openai_api_key
-
-# Anthropic
-ANTHROPIC_API_KEY=your_anthropic_api_key
-
-# Google AI
-GOOGLE_AI_API_KEY=your_google_ai_api_key
-
-# Vercel KV (Optional)
-KV_URL=your_kv_url
-KV_REST_API_URL=your_kv_rest_api_url
-KV_REST_API_TOKEN=your_kv_rest_api_token
-KV_REST_API_READ_ONLY_TOKEN=your_kv_read_only_token
+To create a production build:
+```bash
+pnpm build
 ```
 
-## Project Structure
+### Deployment
 
-```
-.
-├── app/                # Next.js app directory
-│   ├── api/           # API routes
-│   └── ...           # Page routes
-├── components/        # React components
-│   ├── ui/           # UI components
-│   └── ...          # Feature components
-├── lib/              # Utility functions
-├── styles/           # Global styles
-└── public/           # Static assets
-```
+This project is configured for deployment on Vercel. The following environment variables are required:
+
+- `NEXT_PUBLIC_API_URL`: API endpoint URL
+- Add any other required environment variables here
+
+### Project Structure
+
+- `/app`: Next.js 14 app directory
+- `/components`: React components
+- `/lib`: Utility functions and shared code
+- `/styles`: Global styles and Tailwind CSS configuration
+
+### Technologies Used
+
+- Next.js 14.1.3
+- React 18
+- TypeScript
+- Tailwind CSS
+- shadcn/ui components
 
 ## Contributing
 
-1. Create a new branch for your feature:
-```bash
-git checkout -b feature/your-feature-name
-```
-
-2. Make your changes and commit them:
-```bash
-git commit -m "feat: add your feature"
-```
-
-3. Push to your branch:
-```bash
-git push origin feature/your-feature-name
-```
-
-4. Create a Pull Request on GitHub.
+1. Create a new branch for your feature
+2. Make your changes
+3. Submit a pull request
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT
 
 # POP2 Research Project Website
 
