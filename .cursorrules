@@ -54,7 +54,7 @@ print(response)
 
 You always have an LLM at your side to help you with the task. For simple tasks, you could invoke the LLM by running the following command:
 ```
-venv/bin/python3 ./tools/llm_api.py --prompt "What is the capital of France?" --provider "anthropic"
+venv/bin/python3 ./.cursor/tools/llm_api.py --prompt "What is the capital of France?" --provider "anthropic"
 ```
 
 The LLM API supports multiple providers:
@@ -65,7 +65,7 @@ The LLM API supports multiple providers:
 - Gemini (model: gemini-pro)
 - Local LLM (model: Qwen/Qwen2.5-32B-Instruct-AWQ)
 
-But usually it's a better idea to check the content of the file and use the APIs in the `tools/llm_api.py` file to invoke the LLM if needed.
+But usually it's a better idea to check the content of the file and use the APIs in the `.cursor/tools/llm_api.py` file to invoke the LLM if needed.
 
 ## Web browser
 
@@ -431,3 +431,11 @@ Follow these steps for systematic debugging:
    - Monitor memory usage patterns
 
 # Scratchpad
+
+## Current Task: Integrating Cursor Rules
+[X] Create .cursor directory
+[X] Move tools and test files to .cursor directory
+[X] Create .cursorrules file with instructions and lessons
+[ ] Remove the embedded git repository
+[ ] Update git configuration
+[ ] Test cursor functionality

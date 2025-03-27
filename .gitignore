@@ -122,3 +122,11 @@ logs
 *.dat
 *.pak
 *.jar
+
+# Cursor
+.cursor/tools/__pycache__/
+.cursor/**/*.pyc
+.cursor/**/*.pyo
+.cursor/**/*.pyd
+.cursor/.pytest_cache/
+.cursor/test_results/
