@@ -124,9 +124,12 @@ logs
 *.jar
 
 # Cursor
-.cursor/tools/__pycache__/
-.cursor/**/*.pyc
-.cursor/**/*.pyo
-.cursor/**/*.pyd
-.cursor/.pytest_cache/
-.cursor/test_results/
+.cursor/
+.cursorrules
+.cursorignore
+tools/llm_api.py
+tools/screenshot_utils.py
+tools/web_scraper.py
+tools/search_engine.py
+test_basic_functionality.py
+test_llm_providers.py

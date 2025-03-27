@@ -31,7 +31,7 @@ def load_environment():
         print(f"Checking {env_path.absolute()}", file=sys.stderr)
         if env_path.exists():
             print(f"Found {env_file}, loading variables...", file=sys.stderr)
-            load_dotenv(dotenv_path=env_path, override=True)
+            load_dotenv(dotenv_path=env_path)
             env_loaded = True
             print(f"Loaded environment variables from {env_file}", file=sys.stderr)
             # Print loaded keys (but not values for security)
@@ -150,7 +150,7 @@ def query_llm(prompt: str, client=None, model=None, provider="openai", image_pat
             elif provider == "anthropic":
                 model = "claude-3-7-sonnet-20250219"
             elif provider == "gemini":
-                model = "gemini-1.5-pro"
+                model = "gemini-2.0-flash-exp"
             elif provider == "local":
                 model = "Qwen/Qwen2.5-32B-Instruct-AWQ"
         
@@ -216,14 +216,23 @@ def query_llm(prompt: str, client=None, model=None, provider="openai", image_pat
             return response.content[0].text
             
         elif provider == "gemini":
-            # Configure the API
-            client.configure(api_key=os.getenv('GOOGLE_API_KEY'))
-            
-            # Get the model
-            model = client.GenerativeModel('gemini-1.5-pro')
-            
-            # Generate content
-            response = model.generate_content(prompt)
+            model = client.GenerativeModel(model)
+            if image_path:
+                file = genai.upload_file(image_path, mime_type="image/png")
+                chat_session = model.start_chat(
+                    history=[{
+                        "role": "user",
+                        "parts": [file, prompt]
+                    }]
+                )
+            else:
+                chat_session = model.start_chat(
+                    history=[{
+                        "role": "user",
+                        "parts": [prompt]
+                    }]
+                )
+            response = chat_session.send_message(prompt)
             return response.text
             
     except Exception as e:
@@ -248,7 +257,7 @@ def main():
         elif args.provider == 'anthropic':
             args.model = "claude-3-7-sonnet-20250219"
         elif args.provider == 'gemini':
-            args.model = "gemini-1.5-pro"
+            args.model = "gemini-2.0-flash-exp"
         elif args.provider == 'azure':
             args.model = os.getenv('AZURE_OPENAI_MODEL_DEPLOYMENT', 'gpt-4o-ms')  # Get from env with fallback
 
